@@ -78,7 +78,8 @@ function apply_all_patches() {
     for (( i=0; i<${#PATCHES_DIR[@]}; i++ ));
     do
 
-        show_info 'green' "[${i}/${PATCHES_NUM}]\tNow patching ${PATCHES_DIR[$i]}"
+        local current_num=$(($i+1))
+        show_info 'green' "[${current_num}/${PATCHES_NUM}]\tNow patching ${PATCHES_DIR[$i]}"
         apply_patch ${PATCHES_DIR[$i]} ${PATCHES_CONTENT[${i}]}
 
     done
